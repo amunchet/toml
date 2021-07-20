@@ -150,6 +150,6 @@ def test_bugfix_improper_parents():
     """
 
     decoder = toml.TomlPreserveCommentDecoder(beforeComments=True)
-    data = toml.loads(TEST_STR, decoder=decoder)
+    data = toml.loads(test_str, decoder=decoder)
 
-    assert decoder.before_tags[2]["parent"] == "[[outputs.influxdb]]"
+    assert decoder.before_tags[-1]["parent"] == "[[outputs.influxdb]]"
